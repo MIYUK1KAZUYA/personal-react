@@ -1,6 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+function reveal() {
+    const development = document.querySelector(".text-area");
+    const windowHeight = window.innerHeight;
+    const devTop = development.getBoundingClientRect().top;
+    const elementVisible = 150;
+  
+    if (devTop < windowHeight - elementVisible) {
+      development.classList.add("active");
+    } else {
+      development.classList.remove("active");
+    }
+}
 
 const Dev = () => {
+    useEffect(() => {
+        window.addEventListener("scroll", reveal);
+    }, []);
+
     return (
         <div id="dev" className="dev-section">
             <div className="dev-container container">

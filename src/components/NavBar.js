@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
 
-const NavBar = () => {
-    useEffect(() => {
-        const avatar = document.querySelector(".avatar");
-        const intro = document.querySelector(".intro");
-        const navigation = document.querySelector(".navigation");
-        let lastScroll = 0;
-        window.addEventListener("scroll", () => {
+function navScroll() {
+    const navigation = document.querySelector(".navigation");
+    let lastScroll = 0;
+    window.addEventListener("scroll", () => {
         let currentScroll = window.pageYOffset;
         if (currentScroll - lastScroll > 0 && currentScroll > 200) {
             navigation.classList.add("scroll-down");
@@ -15,8 +12,13 @@ const NavBar = () => {
             navigation.classList.add("scroll-up");
             navigation.classList.remove("scroll-down");
         }
-  lastScroll = currentScroll;
-});
+        lastScroll = currentScroll;
+    });
+}
+
+const NavBar = () => {
+    useEffect(() => {
+        navScroll()
     }, []);
 
     return (

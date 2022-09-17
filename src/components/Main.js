@@ -1,17 +1,21 @@
 import React, { useEffect } from "react";
 
+function mainLoad() {
+    const avatar = document.querySelector(".avatar");
+    const intro = document.querySelector(".intro");
+    const navigation = document.querySelector(".navigation");
+    setTimeout(() => {
+        avatar.classList.remove('fade');
+        setTimeout(() => {
+        navigation.classList.remove('scroll-down');
+        intro.classList.remove('fade');
+        }, 500);
+    }, 600);
+}
+
 const Main = () => {
     useEffect(() => {
-        const avatar = document.querySelector(".avatar");
-        const intro = document.querySelector(".intro");
-        const navigation = document.querySelector(".navigation");
-        setTimeout(() => {
-          avatar.classList.remove('fade');
-          setTimeout(() => {
-          navigation.classList.remove('scroll-down');
-          intro.classList.remove('fade');
-        }, 500);
-        }, 600);
+        mainLoad()
     }, []);
 
     return (

@@ -1,6 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+function reveal() {
+    const about = document.querySelector(".about");
+    const windowHeight = window.innerHeight;
+    const aboutTop = about.getBoundingClientRect().top;
+    const elementVisible = 150;
+  
+    if (aboutTop < windowHeight - elementVisible) {
+      about.classList.add("active");
+    } else {
+      about.classList.remove("active");
+    }
+}
 
 const About = () => {
+    useEffect(() => {
+        window.addEventListener("scroll", reveal);
+    },[]);
+
     return (
         <div id="about" className="about-section">
             <div className="about-container container">
