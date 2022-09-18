@@ -3,7 +3,7 @@ import Image from "./Image";
 
 const Gallery = () => {
     const [img, setImg] = useState(0)
-    const images = [<img src={require('../img/profile.JPG')} />, <img src={require('../img/IMG_2797.jpg')} />];
+    const images = [<img src={require('../img/profile.JPG')} />, <img src={require('../img/6da9a886.jpg')} />, <img src={require('../img/IMG_2797.jpg')} />];
 
     function handleClick(n) {
         if (img + n < 0) {
